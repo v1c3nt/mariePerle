@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ArticleController!
+{% endblock %}
+
+{% block body %}
+
+
+	<div class="example-wrapper">
+		<h1>
+			{{ controller_name }}!
+        </h1>
+        <div class="article-wrapper">
+			{% for article in articles %}
+                {% include "article/_article.html.twig" %}
+			{% endfor %}
+        </div>
+		
+	</div>
+{% endblock %}

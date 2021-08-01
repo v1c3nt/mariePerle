@@ -1,0 +1,39 @@
+.article-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.article {
+    border: 5px #2F2F2F solid;
+    width: 32%;
+    border-radius: 0 15px 0 0;
+    margin-bottom: 1rem;
+}
+
+.titre {
+    text-align: center;
+}
+
+.images {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+
+    border-radius: 0 10px 0 10px;
+}
+
+img {
+    width: 100%;
+}
+
+.description {
+    padding: 1rem 0.5rem;
+}
+.description  p{
+    margin-left: 1rem;
+}
+
+.prix-wrapper {
+
+}

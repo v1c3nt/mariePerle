@@ -35,7 +35,7 @@ class Article
     private $prix;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $remise;
 
@@ -49,10 +49,16 @@ class Article
      */
     private $photos;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Order::class, mappedBy="articles")
+     */
+    private $orders;
+
     public function __construct()
     {
         $this->pierres = new ArrayCollection();
         $this->photos = new ArrayCollection();
+        $this->orders = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -152,6 +158,33 @@ class Article
     public function removePhoto(Photo $photo): self
     {
         $this->photos->removeElement($photo);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Order[]
+     */
+    public function getOrders(): Collection
+    {
+        return $this->orders;
+    }
+
+    public function addOrder(Order $order): self
+    {
+        if (!$this->orders->contains($order)) {
+            $this->orders[] = $order;
+            $order->addArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrder(Order $order): self
+    {
+        if ($this->orders->removeElement($order)) {
+            $order->removeArticle($this);
+        }
 
         return $this;
     }

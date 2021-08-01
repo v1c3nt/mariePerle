@@ -4,16 +4,16 @@ namespace App\Service;
 class ChakraService
 {
     private $chakra =  [
-        'Racine (Muladahra)' => 1,
-        'Centre d\'Energie (Hara)' => 2,
-        'Plexus Solaire' => 3,
-        'Coeur (Anahata)' => 4,
-        'Gorge (Vishuddha)' => 5,
-        'Troisième Oeil (Ajna)' => 6,
-        'Coronal (Sahasrara)' => 7,
+        'Racine (Muladahra)' => 'Racine (Muladahra)',
+        'Centre d\'Energie (Hara)' => 'Centre d\'Energie (Hara)',
+        'Plexus Solaire' => 'Plexus Solaire',
+        'Coeur (Anahata)' => 'Coeur (Anahata)',
+        'Gorge (Vishuddha)' => 'Gorge (Vishuddha)',
+        'Troisième Oeil (Ajna)' => 'Troisième Oeil (Ajna)',
+        'Coronal (Sahasrara)' => 'Coronal (Sahasrara)' ,
     ];
 
-    public function getChakra()
+    public function getChakras()
     {
         return $this->chakra;
     }

@@ -1,0 +1,27 @@
+<div class="pierre">
+	<h6 class="sub-article">
+		{{ pierre.nom }}
+	</h6>
+	<ul>
+		<li>forme:
+			{{ pierre.forme }}</li>
+		<li>vertu:
+			{% for vertu in pierre.vertus %}
+				{{ pierre.vertus }} 
+			{% endfor %}
+		</li>
+
+		{% if pierre.chakra %}
+			<li>Chakra:
+				{{ pierre.chakra }}</li>
+		{% endif %}
+		{% if pierre.couleur %}
+			<li>couleur:
+				{{ pierre.couleur }}</li>
+		{% endif %}
+		{% if pierre.diametre %}
+			<li>diamètre:
+				{{ pierre.diametre }}</li>
+		{% endif %}
+	</ul>
+</div>
