@@ -4,10 +4,12 @@ namespace App\Controller\Admin;
 
 use App\Entity\Article;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 
 class ArticleCrudController extends AbstractCrudController
 {
@@ -22,9 +24,8 @@ class ArticleCrudController extends AbstractCrudController
             AssociationField::new('photos'),
             TextField::new('titre'),
             TextEditorField::new('description'),
-            MoneyField::new('prix')->setCurrency('EUR'),
+            IntegerField::new('prix'),
             AssociationField::new('pierres'),
-            
         ];
     }
 }

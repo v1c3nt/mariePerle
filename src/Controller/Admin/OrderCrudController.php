@@ -3,9 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Order;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class OrderCrudController extends AbstractCrudController
 {
@@ -18,11 +19,17 @@ class OrderCrudController extends AbstractCrudController
     {
         return [
             TextField::new('customer'),
-            AssociationField::new('atricles'),
-            TextField::new('adsress'),
+            AssociationField::new('articles'),
+            TextField::new('address'),
             TextField::new('city'),
             TextField::new('postCode'),
             TextField::new('phone'),
+            BooleanField::new('new')->onlyOnIndex(),
+            BooleanField::new('inProgress')->onlyOnIndex(),
+            BooleanField::new('shipped')->onlyOnIndex(),
+            TextField::new('trackingNumber'),
+            BooleanField::new('complete ')->onlyOnIndex(),
+            // BooleanField
         ];
     }
 

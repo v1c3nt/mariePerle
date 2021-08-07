@@ -56,6 +56,5 @@ class DashboardController extends AbstractDashboardController
                         ->setAction('new')
                 ]),
             ];
-        }
-    
+        } 
 }

@@ -92,7 +92,7 @@ class Article
 
     public function getPrix(): ?float
     {
-        return $this->prix;
+        return $this->prix ;
     }
 
     public function setPrix(?float $prix): self
@@ -187,5 +187,10 @@ class Article
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->titre;
     }
 }

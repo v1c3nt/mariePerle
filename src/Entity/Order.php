@@ -26,7 +26,7 @@ class Order
     private $customer;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Article::class, inversedBy="orders")
+     * @ORM\ManyToMany(targetEntity=Article::class, inversedBy="orders",cascade={"persist"})
      */
     private $articles;
 
@@ -46,14 +46,19 @@ class Order
     private $postcode;
 
     /**
+     * @ORM\Column(type="float")
+     */
+    private $amound;
+
+    /**
      * @ORM\Column(type="string", length=32)
      */
     private $phone;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default":1})
      */
-    private $new;
+    private $new = true;
 
     /**
      * @ORM\Column(type="datetime_immutable", nullable=true)
@@ -61,9 +66,9 @@ class Order
     private $receivedAt;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default":0})
      */
-    private $inProgress;
+    private $inProgress = false;
 
     /**
      * @ORM\Column(type="datetime_immutable", nullable=true)
@@ -71,24 +76,29 @@ class Order
     private $inProgressAt;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default":0})
      */
-    private $shipped;
+    private $shipped = false;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="datetime_immutable", nullable=true)
      */
     private $shippedAt;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default":0})
      */
-    private $complete;
+    private $complete = 0;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="datetime_immutable", nullable=true)
      */
     private $completedAt;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $trackingNumber;
 
     public function __construct()
     {
@@ -172,12 +182,24 @@ class Order
         return $this;
     }
 
-    public function getPhone(): ?string
+    public function getAmound(): ?string
+    {
+        return $this->amound;
+    }
+
+    public function setAmound(string $amound): self
+    {
+        $this->amound = $amound;
+
+        return $this;
+    }
+
+    public function getPhone(): ?float
     {
         return $this->phone;
     }
 
-    public function setPhone(string $phone): self
+    public function setPhone(float $phone): self
     {
         $this->phone = $phone;
 
@@ -276,6 +298,18 @@ class Order
     public function setCompletedAt(\DateTimeImmutable $completedAt): self
     {
         $this->completedAt = $completedAt;
+
+        return $this;
+    }
+
+    public function getTrackingNumber(): ?string
+    {
+        return $this->trackingNumber;
+    }
+
+    public function setTrackingNumber(?string $trackingNumber): self
+    {
+        $this->trackingNumber = $trackingNumber;
 
         return $this;
     }

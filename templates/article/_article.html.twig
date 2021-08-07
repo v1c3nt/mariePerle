@@ -6,8 +6,8 @@
 		{% if article.remise %}
 			<div
 				class="old-prix">
-				{# {{ article.prix|format_currency('EUR') }} #}
-				{{ article.prix }}
+				{{ article.prix|format_currency('EUR', format_width) }}
+
 			</div>
 			<div class="remise">
 				{{ article.remise }}
@@ -16,31 +16,32 @@
 				{{ article.prix - ((article.prix * article.remise) / 100) }}
 			</div>
 		{% else %}
-			<div
-				class="prix">
-				{# {{ article.prix|format_currency('EUR') }} #}
-				{{ article.prix }}
+			<div class="prix">
+				{{ article.prix|format_currency('EUR', {fraction_digit:0}) }}
 			</div>
 		{% endif %}
-
 	</div>
 	<div class="images">
 		{% for photo in article.photos %}
 			<img src="./photos/{{ photo.url }}" alt="{{ photo.alt }}">
 		{% endfor %}
 	</div>
-    <div class="ajout-panier">
-        
-    </div>
-	<div class="description">
-		description:
-		<p>
-			{{ article.description|raw }}
-		</p>
+	<div class="ajout-panier">
+		<a href="{{ path('add_article', {'article':article.id}) }}">ADD</a><br>	
+		<a href="{{ path('remove_article', {'article':article.id}) }}">Remove</a>
 	</div>
-	<div class="composition">
-		{% for pierre in article.pierres %}
-			{% include "article/_pierre.html.twig" %}
-		{% endfor %}
+	<div class="article-body">
+		<div class="description">
+			description:
+			<p>
+				{{ article.description|raw }}
+			</p>
+		</div>
+		<hr>
+		<div class="composition">
+			{% for pierre in article.pierres %}
+				{% include "article/_pierre.html.twig" %}
+			{% endfor %}
+		</div>
 	</div>
 </div>
