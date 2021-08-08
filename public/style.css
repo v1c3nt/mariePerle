@@ -60,13 +60,18 @@ footer {
     height: 220px;
     overflow: hidden;
     border-radius: 0 10px 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 img {
     width: 100%;
+    text-align: center;
 }
 
 .article-body {
+    
     padding: 1rem 0.5rem;
 }
 

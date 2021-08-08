@@ -25,7 +25,7 @@ class Pierre
     private $nom;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $forme;
 
@@ -45,19 +45,20 @@ class Pierre
     private $vertus;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $chakra;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Article::class, mappedBy="pierres")
      */
     private $articles;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Chakras::class, inversedBy="pierres")
+     */
+    private $chakras;
 
     public function __construct()
     {
         $this->vertus = new ArrayCollection();
         $this->articles = new ArrayCollection();
+        $this->chakras = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -137,18 +138,6 @@ class Pierre
         return $this;
     }
 
-    public function getChakra(): ?string
-    {
-        return $this->chakra;
-    }
-
-    public function setChakra(?string $chakra): self
-    {
-        $this->chakra = $chakra;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Article[]
      */
@@ -179,5 +168,29 @@ class Pierre
     public function __toString()
     {
         return $this->nom .'-'. $this->forme;
+    }
+
+    /**
+     * @return Collection|Chakras[]
+     */
+    public function getChakras(): Collection
+    {
+        return $this->chakras;
+    }
+
+    public function addChakra(Chakras $chakra): self
+    {
+        if (!$this->chakras->contains($chakra)) {
+            $this->chakras[] = $chakra;
+        }
+
+        return $this;
+    }
+
+    public function removeChakra(Chakras $chakra): self
+    {
+        $this->chakras->removeElement($chakra);
+
+        return $this;
     }
 }

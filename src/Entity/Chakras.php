@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\VertuRepository;
+use App\Repository\ChakrasRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=VertuRepository::class)
+ * @ORM\Entity(repositoryClass=ChakrasRepository::class)
  */
-class Vertu
+class Chakras
 {
     /**
      * @ORM\Id
@@ -25,7 +25,7 @@ class Vertu
     private $nom;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Pierre::class, mappedBy="vertus")
+     * @ORM\ManyToMany(targetEntity=Pierre::class, mappedBy="chakras")
      */
     private $pierres;
 
@@ -63,7 +63,7 @@ class Vertu
     {
         if (!$this->pierres->contains($pierre)) {
             $this->pierres[] = $pierre;
-            $pierre->addVertu($this);
+            $pierre->addChakra($this);
         }
 
         return $this;
@@ -72,7 +72,7 @@ class Vertu
     public function removePierre(Pierre $pierre): self
     {
         if ($this->pierres->removeElement($pierre)) {
-            $pierre->removeVertu($this);
+            $pierre->removeChakra($this);
         }
 
         return $this;

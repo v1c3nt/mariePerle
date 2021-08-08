@@ -7,14 +7,18 @@
 			{{ pierre.forme }}</li>
 		<li>vertu:
 			{% for vertu in pierre.vertus %}
-				{{ pierre.vertus }} 
+				<ul>
+					<li>{{ vertu.nom }}</li>
+				</ul>
 			{% endfor %}
 		</li>
-
-		{% if pierre.chakra %}
-			<li>Chakra:
-				{{ pierre.chakra }}</li>
-		{% endif %}
+		<li>Chakra:
+			<ul>
+				{% for chakra in pierre.chakras %}
+					<li>{{ chakra.nom }}</li>
+				{% endfor %}
+			</ul>
+		</li>
 		{% if pierre.couleur %}
 			<li>couleur:
 				{{ pierre.couleur }}</li>
@@ -23,5 +27,5 @@
 			<li>diamètre:
 				{{ pierre.diametre }}</li>
 		{% endif %}
-	</ul>
-</div>
+	</li>
+</ul></div>

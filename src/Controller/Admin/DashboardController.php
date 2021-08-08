@@ -7,6 +7,7 @@ use App\Entity\Photo;
 use App\Entity\Vertu;
 use App\Entity\Pierre;
 use App\Entity\Article;
+use App\Entity\Chakras;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -38,6 +39,11 @@ class DashboardController extends AbstractDashboardController
                 MenuItem::subMenu("vertu", 'far fa-smile')->setSubItems([
                     MenuItem::linkToCrud('Liste', 'fas fa-list-ol', Vertu::class),
                     MenuItem::linkToCrud('Nouveau', 'fas fa-plus', Vertu::class)
+                        ->setAction('new')
+                ]),                
+                MenuItem::subMenu("chakras", 'fas fa-atom')->setSubItems([
+                    MenuItem::linkToCrud('Liste', 'fas fa-list-ol', Chakras::class),
+                    MenuItem::linkToCrud('Nouveau', 'fas fa-plus', Chakras::class)
                         ->setAction('new')
                 ]),
                 MenuItem::subMenu("photo", 'fa fa-camera-retro')->setSubItems([

@@ -40,11 +40,10 @@ class PierreCrudController extends AbstractCrudController
         return [
             TextField::new('nom'),
             ChoiceField::new('forme')->setChoices($this->formes),
-            // AssociationField::new('photos'),
-            ChoiceField::new('chakra')->setChoices($this->chakras),
+            AssociationField::new('chakras'),
             ChoiceField::new('couleur')->setChoices($this->couleurs),
-            //TODO ajouter les vertus une fois créer
             IntegerField::new('diametre'),
+            AssociationField::new('vertus'),
         ];
     }
     
