@@ -18,13 +18,11 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class PierreCrudController extends AbstractCrudController
 {
-    private $chakras;
     private $couleurs;
     private $formes;
     
-    public function __construct(ChakraService $chakra, CouleurService $couleur, FormeService $forme)
+    public function __construct(CouleurService $couleur, FormeService $forme)
     {
-        $this->chakras = $chakra->getChakras();
         $this->couleurs = $couleur->getCouleur();
         $this->formes = $forme->getForme();
     }

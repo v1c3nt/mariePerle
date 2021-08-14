@@ -54,6 +54,11 @@ class Article
      */
     private $orders;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Photo::class, inversedBy="mainArticles")
+     */
+    private $mainPicture;
+
     public function __construct()
     {
         $this->pierres = new ArrayCollection();
@@ -193,4 +198,17 @@ class Article
     {
         return $this->titre;
     }
+
+    public function getMainPicture(): ?Photo
+    {
+        return $this->mainPicture;
+    }
+
+    public function setMainPicture(?Photo $mainPicture): self
+    {
+        $this->mainPicture = $mainPicture;
+
+        return $this;
+    }
+
 }

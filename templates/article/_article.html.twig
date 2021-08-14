@@ -34,7 +34,7 @@
 		<div class="description">
 			description:
 			<p>
-				{{ article.description|raw }}
+			{{article.description|striptags| u.truncate(28, '...')}}
 			</p>
 		</div>
 		<hr>

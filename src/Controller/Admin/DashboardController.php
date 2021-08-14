@@ -25,7 +25,10 @@ class DashboardController extends AbstractDashboardController
         public function configureDashboard(): Dashboard
         {
             return Dashboard::new()
-                ->setTitle('Les pierres de Marie');
+                ->setTitle('Les pierres de Marie')
+                ->renderContentMaximized()
+                ->renderSidebarMinimized()
+            ;
         }
     
         public function configureMenuItems(): iterable

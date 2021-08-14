@@ -30,8 +30,7 @@ class PhotoCrudController extends AbstractCrudController
     {
         return [
             ImageField::new('url')->setUploadDir($this->photosDirectory)
-            ->setBasePath($this->photosDisplay)
-            ->setUploadDir($this->photosDirectory),
+            ->setBasePath($this->photosDisplay),
             TextField::new('alt'),  
         ];
     }
