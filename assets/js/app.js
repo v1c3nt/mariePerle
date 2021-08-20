@@ -1,20 +1,25 @@
-/*
- * Welcome to your app's main JavaScript file!
- *
- * We recommend including the built version of this JavaScript file
- * (and its CSS file) in your base layout (base.html.twig).
- */
+import '../scss/app.scss';
+import React from 'react';
+import reactDOM from 'react-dom';
 
-// any CSS you import will output into a single css file (app.css in this case)
-import '../scss/app.css';
+require('@fortawesome/fontawesome-free/css/all.min.css');
+require('@fortawesome/fontawesome-free/js/all.js');
+import axios from 'axios';
+import Article from './components/article';
+
 
 // start the Stimulus application
 // import './bootstrap';
 var app = {
      init: function () {
- 
          console.log('made with 💖 and little 🍺')
-
+         axios.get('http://127.0.0.1:8000/api/articles')
+            .then( function (response){
+                console.log(response);
+            })
+            .catch( () => false)
+            ;
          },
     }
 $(app.init);
+reactDOM.render(<Article />, document.getElementById('test'));

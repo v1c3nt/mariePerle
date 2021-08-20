@@ -13,17 +13,17 @@ main{
 
 header {
     height: 150px;
-    background-color: #2F2F2F;
+    background-color: $color1;
     display: flex;
     justify-content: space-evenly;
     text-align: center;
     padding-top: 1rem;
-    color: rgb(253, 237, 216);
+    color: $color2;
 }
 
 footer {
     height: 65px;
-    background-color: aquamarine;
+    background-color: #7fffd4;
 }
 
 .logo {
@@ -45,7 +45,7 @@ footer {
 }
 
 .article {
-    border: 5px #2F2F2F solid;
+    border: 5px $color1 solid;
     width: 32%;
     border-radius: 0 15px 0 0;
     margin-bottom: 1rem;
@@ -84,5 +84,5 @@ img {
 }
 
 .composition > .pierre:not(:last-child) {
-    border-bottom: 2px solid #2F2F2F;
+    border-bottom: 2px solid $color1;
 }

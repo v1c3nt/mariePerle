@@ -2,10 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\PhotoRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\PhotoRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=PhotoRepository::class)
@@ -21,11 +22,13 @@ class Photo
 
     /**
      * @ORM\Column(type="text")
+     * @Groups("get:article")
      */
     private $url;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("get:article")
      */
     private $alt;
 
