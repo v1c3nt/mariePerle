@@ -35,7 +35,7 @@ class ArticleCrudController extends AbstractCrudController
             TextField::new('titre'),
             TextEditorField::new('description'),
             IntegerField::new('prix'),
-            AssociationField::new('mainPicture')->hideOnIndex(),
+            AssociationField::new('mainPicture', 'photo de présentaion')->hideOnIndex(),
             AssociationField::new('pierres'),
             AssociationField::new('photos')->hideOnIndex(),
         ];

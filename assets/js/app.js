@@ -7,6 +7,8 @@ require('@fortawesome/fontawesome-free/js/all.js');
 import axios from 'axios';
 import Article from './components/Article';
 
+import open from '../images/open.png';
+import close from '../images/close.png';
 
 // start the Stimulus application
 // import './bootstrap';
