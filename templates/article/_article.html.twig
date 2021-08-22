@@ -1,6 +1,6 @@
 <div class="article">
 	<div class="left-article">
-		
+
 		<div class="prix-wrapper">
 			{% if article.remise %}
 				<div class="old-prix">
@@ -19,10 +19,8 @@
 				</div>
 			{% endif %}
 		</div>
-	<div class="main-image">
-			{% for photo in article.photos %}
-				<img src="./photos/{{ photo.url }}" alt="{{ photo.alt }}">
-			{% endfor %}
+		<div class="main-image">
+			<img src="./photos/{{ article.mainPicture.url }}" alt="{{ article.mainPicture.alt }}">
 		</div>
 		<div class="basket-action">
 			<a href="{{ path('remove_article', {'article':article.id}) }}">
@@ -42,7 +40,7 @@
 			<div class="description">
 				description:
 				<p>
-					{{article.description|striptags| u.truncate(28, '...')}}
+					{{article.description|striptags| u.truncate(100, '...')}}
 				</p>
 			</div>
 			<hr>
@@ -54,8 +52,8 @@
 				</ul>
 			</div>
 		</div>
-		<button>
-			en savoir plus
+		<button class="learn-more" id="buttonReact" >
+			
 		</button>
 	</div>
 </div>
