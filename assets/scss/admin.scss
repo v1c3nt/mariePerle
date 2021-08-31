@@ -2,4 +2,14 @@
     width: 100%;
     display: flex;
     justify-content: space-evenly;
+
+    &>img {
+        width: 45%;
+    }
+}
+
+.vertical-separator {
+    border: 1px solid #1E1E1E;
+    width: 5%;
+    border-width: 0 5px;
 }

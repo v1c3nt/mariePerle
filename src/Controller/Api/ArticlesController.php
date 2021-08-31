@@ -8,6 +8,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+/** 
+ * @Route("/api", name="api_") */
 class ArticlesController extends AbstractController
 {
     private $normalizer;
@@ -20,7 +22,7 @@ class ArticlesController extends AbstractController
     }
 
     /**
-     * @Route("/api/articles", name="articles", methods={"GET"})
+     * @Route("/articles", name="articles", methods={"GET"})
      */
     public function apiArticles()
     {
@@ -31,7 +33,7 @@ class ArticlesController extends AbstractController
     }
 
     /**
-     * @Route("/api/article/artilce", name="articles", methods={"GET"})
+     * @Route("/article/{article}", name="article", methods={"GET"})
      */
     public function apiArticle(Article $article)
     {
