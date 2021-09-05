@@ -13,6 +13,7 @@ import { gsap } from 'gsap';
 
 import open from '../images/open.png';
 import close from '../images/close.png';
+import { css, timers } from 'jquery';
 
 // start the Stimulus application
 // import './bootstrap';
@@ -32,10 +33,16 @@ var app = {
         //     ;
          },
         scal: function() {
-            gsap.to($(this), {scale: 2, duration: 2});
+
+            gsap.to($(this), {scale: 2, duration: 1, });
+            gsap.set($(this), {zIndex: 2});
         },
         scalOff: function() {
-            gsap.to($(this), {scale: 1, duration: 2});
+            gsap.set($(this), {zIndex: 1});
+            // gsap.set(this.target, {zIndex: 0});
+            gsap.to($(this), {scale: 1, duration: 1.2})
+
+            ;
         }
     }
 $(app.init);

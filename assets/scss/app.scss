@@ -1,5 +1,6 @@
 @import "./variable";
 @import "./base.scss";
+@import "./backdrop-filter.scss";
 @import "./utilities.scss";
 @import "./pages/basket.scss";
 
@@ -14,7 +15,6 @@
 .login {
     width: 20%;
 }
-
 
 .titre {
     text-align: center;

@@ -20,7 +20,8 @@
 					{% include "layouts/partials/_header.html.twig" %}
 				{% endblock %}
 			</header>
-			<main>
+			{% include "layouts/partials/_header-navbar.html.twig" %}
+			<main class="bg-blur">
 				{% block main %}{% endblock %}
 			</main>
 			<footer>
