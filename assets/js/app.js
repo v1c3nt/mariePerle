@@ -34,13 +34,15 @@ var app = {
          },
         scal: function() {
 
-            gsap.to($(this), {scale: 2, duration: 1, });
-            gsap.set($(this), {zIndex: 2});
+            gsap.to($(this), {scale: 1.5, duration: 1, boxShadow:"1px 1px 10px 10px #2c2c2c", });
+            gsap.to($(this), {  duration: 1, ease: "expo"})
+            ;
+            gsap.set($(this), {zIndex: 2,});
         },
         scalOff: function() {
             gsap.set($(this), {zIndex: 1});
             // gsap.set(this.target, {zIndex: 0});
-            gsap.to($(this), {scale: 1, duration: 1.2})
+            gsap.to($(this), {scale: 1, duration: 1.2,  boxShadow:"2px 3px 7px 2px #2c2c2c"})
 
             ;
         }
