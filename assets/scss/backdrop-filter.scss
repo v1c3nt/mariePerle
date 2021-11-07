@@ -1,12 +1,9 @@
-Result Skip Results Iframe
-EDIT ON
 .bg-blur {
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: #f7ece1af;
   border-radius: 5px;
   color: #333;
   font-family: sans-serif;
   line-height: 1.5;
-  max-width: 50%;
   padding: 1rem 2rem;
   a {
     color: #bf0222;
@@ -21,5 +18,8 @@ EDIT ON
   }
   .warning {
     display: none;
+  }
+  a {
+    color: #bf0222;
   }
 }

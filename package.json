@@ -20,6 +20,7 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.4",
+        "@paypal/paypal-js": "^4.1.0",
         "axios": "^0.21.1",
         "gsap": "^3.7.1",
         "jquery": "^3.6.0",

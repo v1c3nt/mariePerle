@@ -20,14 +20,19 @@
 			<div class="basket-summary">
 				frais de port = {{ basket.shippingCoast }} €
 				<span class="basket-total-amound">TOTAL
-					{{ basket.totalAmound }}
+					<span id="amound">{{ basket.totalAmound }}</span>
 					€</span>
 				<span class="basket-total-taxes">dont TVA:{{ basket.taxes }}
 					€</span>
 			</div>
 			<a href="{{ path('order') }}">commander</a>
+			{% include "security/paypal.html.twig" %}
 		{% else %}
 			Votre panier est vide
 		{% endif %}
 	</div>
 {% endblock %}
+		{% block javascripts %}
+			{{ parent() }}
+
+		{% endblock %}

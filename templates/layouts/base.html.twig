@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
+		<meta charset="UTF-8" name="robots" content="noindex">
 		<title>
 			{% block title %}Welcome!
 			{% endblock %}
@@ -10,7 +10,7 @@
 				           and uncomment the following Encore helpers to start using Symfony UX #}
 		{% block stylesheets %}
 			{# <link rel="stylesheet" href="style.css"> #}
-		{{ encore_entry_link_tags('app') }}
+			{{ encore_entry_link_tags('app') }}
 		{% endblock %}
 	</head>
 	<body>

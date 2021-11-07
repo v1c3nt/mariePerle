@@ -18,7 +18,7 @@ import { css, timers } from 'jquery';
 // start the Stimulus application
 // import './bootstrap';
 var app = {
-     init: function () {
+     init: function () { 
          console.log('made with 💖 and little 🍺');
 
         gsap.to(".main-image", {duration: 2.5, ease: "expo", x: -75});
@@ -48,5 +48,6 @@ var app = {
         }
     }
 $(app.init);
+
 
 // reactDOM.render(<Gsap/>, document.getElementById('header'));
