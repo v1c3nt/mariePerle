@@ -50,7 +50,7 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        return new RedirectResponse($this->urlGenerator->generate('app_admin_dashboard_index'));
+        return new RedirectResponse($this->urlGenerator->generate('easy_admin'));
     }
 
     protected function getLoginUrl(Request $request): string
