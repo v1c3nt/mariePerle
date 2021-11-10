@@ -2,10 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\PierreRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\PierreRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=PierreRepository::class)
@@ -21,26 +22,31 @@ class Pierre
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("get:article")
      */
     private $nom;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)     
+     * @Groups("get:article")
      */
     private $forme;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Groups("get:article")
      */
     private $diametre;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("get:article")
      */
     private $couleur;
 
     /**
      * @ORM\ManyToMany(targetEntity=Vertu::class, inversedBy="pierres")
+     * @Groups("get:article")
      */
     private $vertus;
 
@@ -51,6 +57,7 @@ class Pierre
 
     /**
      * @ORM\ManyToMany(targetEntity=Chakras::class, inversedBy="pierres")
+     * @Groups("get:article")
      */
     private $chakras;
 

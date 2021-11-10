@@ -38,7 +38,7 @@ class basketController extends AbstractController
             $basket[$article->getId()] = ['number' => $basket[$article->getId()]['number'] + 1 , 'article' => $article];
         }
         $session->set('basket', $basket);
-// dd($session->get('basket'));
+
         return $this->redirectToRoute('all_articles');
 
     }    

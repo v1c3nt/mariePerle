@@ -1,0 +1,17 @@
+<div id="header-navbar">
+	<nav>
+		<ul class="header-nav">
+			<li class="navbar-link {{ ActiveRoute('home') }}">
+				<a class="nav-link" href="{{ path('home') }}">Notre démarche</a>
+			</li>
+			<li>Les bienfaits</li>
+			<li>Les pierres</li>
+			<li class="navbar-link {{ ActiveRoute('all_articles') }}">
+				<a class="nav-link" href="{{ path('all_articles') }}">Nos création</a>
+			</li>
+			<li class="navbar-link {{ ActiveRoute('basket') }}">
+				<a class="nav-link" href="{{ path('basket') }}"><i class="fa fa-shopping-basket"></i> Panier</a>
+			</li>
+		</ul>
+	</nav>
+</div>

@@ -2,10 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\ArticleRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ArticleRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
@@ -16,36 +17,43 @@ class Article
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("get:article")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("get:article")
      */
     private $titre;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups("get:article")
      */
     private $description;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Groups("get:article")
      */
     private $prix;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Groups("get:article")
      */
     private $remise;
 
     /**
      * @ORM\ManyToMany(targetEntity=Pierre::class, inversedBy="articles")
+     * @Groups("get:article")
      */
     private $pierres;
 
     /**
      * @ORM\ManyToMany(targetEntity=Photo::class, inversedBy="articles")
+     * @Groups("get:article")
      */
     private $photos;
 
@@ -53,6 +61,12 @@ class Article
      * @ORM\ManyToMany(targetEntity=Order::class, mappedBy="articles")
      */
     private $orders;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Photo::class, inversedBy="mainArticles")
+     * @Groups("get:article")
+     */
+    private $mainPicture;
 
     public function __construct()
     {
@@ -193,4 +207,17 @@ class Article
     {
         return $this->titre;
     }
+
+    public function getMainPicture(): ?Photo
+    {
+        return $this->mainPicture;
+    }
+
+    public function setMainPicture(?Photo $mainPicture): self
+    {
+        $this->mainPicture = $mainPicture;
+
+        return $this;
+    }
+
 }

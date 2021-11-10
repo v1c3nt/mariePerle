@@ -2,10 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\PhotoRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\PhotoRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=PhotoRepository::class)
@@ -21,11 +22,13 @@ class Photo
 
     /**
      * @ORM\Column(type="text")
+     * @Groups("get:article")
      */
     private $url;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("get:article")
      */
     private $alt;
 
@@ -34,9 +37,15 @@ class Photo
      */
     private $articles;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="mainPicture")
+     */
+    private $mainArticles;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+        $this->mainArticles = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -97,6 +106,36 @@ class Photo
 
     public function __toString()
     {
-        return $this->alt;
+        return $this->url;
+    }
+
+    /**
+     * @return Collection|Article[]
+     */
+    public function getMainArticles(): Collection
+    {
+        return $this->mainArticles;
+    }
+
+    public function addMainArticle(Article $mainArticle): self
+    {
+        if (!$this->mainArticles->contains($mainArticle)) {
+            $this->mainArticles[] = $mainArticle;
+            $mainArticle->setMainPicture($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMainArticle(Article $mainArticle): self
+    {
+        if ($this->mainArticles->removeElement($mainArticle)) {
+            // set the owning side to null (unless already changed)
+            if ($mainArticle->getMainPicture() === $this) {
+                $mainArticle->setMainPicture(null);
+            }
+        }
+
+        return $this;
     }
 }
