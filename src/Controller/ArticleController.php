@@ -2,10 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
 use App\Repository\ArticleRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ArticleController extends AbstractController
 {
@@ -16,7 +17,30 @@ class ArticleController extends AbstractController
     {
         return $this->render('article/index.html.twig', [
             'controller_name' => 'Tous nos Articles',
-            'articles' => $articleRepository->findAll(),
+            'articles' => $articleRepository->find20(),
+            'next' => 1,
+        ]);
+    }
+
+    /**
+     * @Route("/tous-nos-articles/page{page}", name="scroll_articles")
+     */
+    public function pageArticle($page, ArticleRepository $articleRepository): Response
+    {
+
+        return $this->render('article/_article.html.twig', [
+            'articles' => $articleRepository->find20($page),
+            'next' => $page++
+        ]);
+    }
+
+    /**
+    * @Route("/detail-article/{article}", name="details_article", methods={"GET"})
+    */
+    public function displayDetails(Article $article)
+    {
+        return $this->render('article/partials/_details.twig', [
+            'article' => $article,
         ]);
     }
 }

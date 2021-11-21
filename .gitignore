@@ -2,7 +2,6 @@
 /.env.local
 /.env.local.php
 /.env.*.local
-/todo.md
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
 /var/
@@ -21,7 +20,6 @@
 
 ###> images des produits <###
 /public/photos/*
-
 ###> symfony/webpack-encore-bundle ###
 /node_modules/
 /public/build/

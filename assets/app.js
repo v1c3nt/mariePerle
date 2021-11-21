@@ -6,15 +6,7 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
-import '../scss/app.css';
+import './styles/app.css';
 
 // start the Stimulus application
-// import './bootstrap';
-var app = {
-     init: function () {
- 
-         console.log('made with 💖 and little 🍺')
-
-         },
-    }
-$(app.init);
+import './bootstrap';

@@ -2,18 +2,27 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta name="description" lang="fr" content="Je crée des bracelets en pierres naturelles. La litothérapie est une technique de soin par les pierres.">
 		<title>
-			{% block title %}Welcome!
+			{% block title %}Les bracelets de Marie, création unique.
 			{% endblock %}
 		</title>
-		{# Run `composer require symfony/webpack-encore-bundle`
-				           and uncomment the following Encore helpers to start using Symfony UX #}
 		{% block stylesheets %}
 			{# <link rel="stylesheet" href="style.css"> #}
 			{{ encore_entry_link_tags('app') }}
 		{% endblock %}
 	</head>
 	<body>
+		<div id="modal-wrapper">
+			
+		</div>
+		<div class="flash-message">
+            {% block flash_message %}
+                <div id="flash_message">
+                    {% include "layouts/partials/_flash_message.html.twig" %}
+                </div>
+            {% endblock %}
+        </div>
 		{% block body %}
 			<header>
 				{% block header %}

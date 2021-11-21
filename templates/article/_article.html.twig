@@ -1,7 +1,10 @@
+
+			{{ encore_entry_script_tags('app') }}
+{% for article in articles %}
 <div class="article">
 	<div class="left-article">
 
-		<div class="prix-wrapper">
+		{# <div class="prix-wrapper">
 			{% if article.remise %}
 				<div class="old-prix">
 					{{ article.prix|format_currency('EUR', format_width) }}
@@ -18,9 +21,11 @@
 					{{ article.prix|format_currency('EUR', {fraction_digit:0}) }}
 				</div>
 			{% endif %}
-		</div>
+		</div> #}
 		<div class="main-image">
-			<img src="./photos/{{ article.mainPicture.url }}" alt="{{ article.mainPicture.alt }}">
+			{% if article.mainPicture is not empty %}
+				<img src="./photos/{{ article.mainPicture.url }}" alt="{{ article.mainPicture.alt }}">
+			{% endif %}
 		</div>
 		
 	</div>
@@ -30,7 +35,12 @@
 		</h4>
 
 		<div class="article-body">
-			<div class="description">
+			<div class="description" 
+				hx-get="{{ path('details_article', {'article':article.id}) }}"
+       			hx-trigger="click"
+       			hx-target="#modal-wrapper"
+       			hx-swap="innerHTML"
+			>
 				description:
 				<p>
 					{{article.description|striptags| u.truncate(100, '...')}}
@@ -48,13 +58,19 @@
 		<button class="learn-more" id="buttonReact-{{ article.id }}">
 			
 		</button>
-		<div class="basket-action">
+		{# <div class="basket-action">
 			<a href="{{ path('remove_article', {'article':article.id}) }}">
 				<i class="fas fa-minus-square"></i>
 			</a>
 			<a href="{{ path('add_article', {'article':article.id}) }}">
 				<i class="fas fa-plus-square"></i>
 			</a><br>
-		</div>
+		</div> #}
 	</div>
 </div>
+		{% endfor %} 
+<span class="w-0"
+	hx-get="{{ path('scroll_articles', {'page': next}) }}"
+    hx-trigger="revealed"
+    hx-swap="afterend"
+></span>

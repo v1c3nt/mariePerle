@@ -28,14 +28,22 @@ class PhotoCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
+        if (Crud::PAGE_EDIT  == $pageName) {
+            return [
+                yield ImageField::new('url')->setUploadDir($this->photosDirectory)
+                ->setBasePath($this->photosDisplay)->setRequired(false),
+                yield TextField::new('alt'), 
+
+            ];
+        }
+
         return [
             yield ImageField::new('url')->setUploadDir($this->photosDirectory)
-            ->setBasePath($this->photosDisplay)->hideWhenUpdating(),
-            yield ImageField::new('url')->setUploadDir($this->photosDirectory)
-            ->setBasePath($this->photosDisplay)->setRequired(false)->onlyWhenUpdating(),
+            ->setBasePath($this->photosDisplay),
             yield TextField::new('alt'),  
         ];
     }
+    
     public function configureCrud(Crud $crud): Crud
     {
         return $crud

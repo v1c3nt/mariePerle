@@ -637,7 +637,7 @@
             "repo": "github.com/symfony/recipes",
             "branch": "master",
             "version": "1.9",
-            "ref": "5ff15d211e3d4a9216218f6b7f1572262efd74e2"
+            "ref": "0f274572ea315eb3b5884518a50ca43f211b4534"
         },
         "files": [
             "assets/app.js",
@@ -666,7 +666,7 @@
         "version": "v3.3.0"
     },
     "twig/string-extra": {
-        "version": "v3.3.1"
+        "version": "v3.3.3"
     },
     "twig/twig": {
         "version": "v3.3.2"

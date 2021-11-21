@@ -5,5 +5,10 @@
     Vous recevez ce mail car vous avez coché la case recevoir une copie.
     </div>
     {% endif %}
-    {{ message|raw }}
-{% endblock %}
+    <p>
+        Question de: <a href="mailto:{{ sender }}">{{ sender }}</a>
+    </p>
+    <p>
+        {{ message|raw }}
+    </p>
+{% endblock %} 

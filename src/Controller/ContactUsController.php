@@ -24,10 +24,11 @@ class ContactUsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $post = $form->getData();
 
-        $mailer->newQuestion($post->getEmail(), $post->getMessage(), $post->getCopy());
+            $mailer->newQuestion($post->getEmail(), $post->getMessage(), $post->getCopy());
 
-        dd('regarde dans tes mails ;)');
-    
+            $this->addFlash('info', 'Votre email a bien été envoyé. <br>Nous reviendrons vers vous au plus vite. Merci');
+
+            return $this->redirectToRoute('all_articles');
         }
         return $this->render('contact_us/index.html.twig', [
             'controller_name' => 'ContactUsController',

@@ -19,9 +19,9 @@ class MailService
 
     public function newQuestion(string $sender, string $message, bool $copy)
     {
-        $context = ['message' => $message];
+        $context = ['message' => $message, 'sender' => $sender];
         $email = (new TemplatedEmail())
-            ->from($sender)
+            ->from($this->addressMail)
             ->to($this->addressMail)
             ->subject('J\'ai une question !')
             ->htmlTemplate('emails/post.html.twig')
@@ -29,7 +29,7 @@ class MailService
             $this->mailer->send($email);
             
             if ( $copy ){
-                $context['copy'] = [ $copy];
+                $context['copy'] = [$copy];
                 $email
                 ->to($sender)
                 ->context($context);
