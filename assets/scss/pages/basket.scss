@@ -8,6 +8,7 @@
 .article {
     border: 5px $color4 solid;
     width: 40%;
+    min-width: 600px;
     border-radius: 15px;
     margin-bottom: 1rem;
     display: flex;

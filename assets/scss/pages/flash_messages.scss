@@ -1,0 +1,19 @@
+
+#flash_message {
+    display: flex;
+    flex-direction: row-reverse;
+    left: 0;
+    position: fixed;
+    top: 80vh;
+    width: 98%;
+    z-index: 2000;
+    color: #2F2F2F;
+    padding: 1rem 0.5rem;
+  
+    & > div {
+      max-width: 50%;
+      // margin: ;
+    }
+  }
+  
+  

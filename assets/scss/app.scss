@@ -1,0 +1,25 @@
+@import "./variable";
+@import "./base.scss";
+@import "./layouts/header.scss";
+@import "./utilities.scss";
+@import "./pages/basket.scss";
+@import "./pages/paypal.scss";
+@import "./backdrop-filter.scss";
+@import "./pages/flash_messages.scss";
+@import "./pages/modal.scss";
+
+.logo {
+    width: 20%;
+}
+
+.center {
+    width: 70%;
+}
+
+.login {
+    width: 20%;
+}
+
+.titre {
+    text-align: center;
+}
