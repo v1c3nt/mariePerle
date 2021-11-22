@@ -24,8 +24,8 @@ class ArticleRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('a')
             ->orderBy('a.id', 'ASC')
-            ->setMaxResults(14)
-            ->setFirstResult($value * 14)
+            ->setMaxResults(6)
+            ->setFirstResult($value * 6)
             ->getQuery()
             ->getResult()
         ;

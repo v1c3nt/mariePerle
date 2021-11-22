@@ -1,7 +1,7 @@
 
 			{{ encore_entry_script_tags('app') }}
 {% for article in articles %}
-<div class="article">
+<div class="article col-10 offset-1">
 	<div class="left-article">
 
 		{# <div class="prix-wrapper">
@@ -31,6 +31,7 @@
 	</div>
 	<div class="right-article">
 		<h4 class="titre">
+		{{article.id}}
 			{{ article.titre }}
 		</h4>
 
@@ -69,7 +70,7 @@
 	</div>
 </div>
 		{% endfor %} 
-<span class="w-0"
+<span class="w-100"
 	hx-get="{{ path('scroll_articles', {'page': next}) }}"
     hx-trigger="revealed"
     hx-swap="afterend"

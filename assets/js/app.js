@@ -20,7 +20,7 @@ var app = {
   init: function () {
     console.log("made with 💖 and little 🍺");
 
-    gsap.to(".main-image", { duration: 2.5, ease: "expo", x: -75 });
+    // gsap.to(".main-image", { duration: 2.5, ease: "expo", x: -75 });
     $(".main-image").on("mouseenter", app.scal);
     $(".main-image").on("mouseleave", app.scalOff);
     $("#modal-wrapper").on("click", '#close', app.closeModal);
@@ -46,7 +46,7 @@ var app = {
 
   scal: function () {
     gsap.to($(this), {
-      scale: 1.5,
+      scale: 1.8,
       duration: 1,
       boxShadow: "1px 1px 10px 10px #2c2c2c",
     });

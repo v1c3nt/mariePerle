@@ -25,12 +25,11 @@ class ArticleController extends AbstractController
     /**
      * @Route("/tous-nos-articles/page{page}", name="scroll_articles")
      */
-    public function pageArticle($page, ArticleRepository $articleRepository): Response
+    public function pageArticle(Int $page, ArticleRepository $articleRepository): Response
     {
-
         return $this->render('article/_article.html.twig', [
             'articles' => $articleRepository->find20($page),
-            'next' => $page++
+            'next' => $page + 1
         ]);
     }
 

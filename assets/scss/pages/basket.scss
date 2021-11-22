@@ -7,8 +7,8 @@
 
 .article {
     border: 5px $color4 solid;
-    width: 40%;
-    min-width: 600px;
+    // width: 40%;
+    // min-width: 600px;
     border-radius: 15px;
     margin-bottom: 1rem;
     display: flex;
@@ -44,11 +44,10 @@
     box-shadow:         2px 3px 7px 2px #2C2C2C;
     display: flex;
     justify-content: center;
-
     overflow: hidden;
     position: relative;
     text-align: center;
-    width: 140%;
+    // width: 140%;
 }
 .main-image:before {
 	content: "";
