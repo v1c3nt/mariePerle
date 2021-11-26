@@ -68,6 +68,11 @@ class Article
      */
     private $mainPicture;
 
+    /**
+     * @ORM\Column(type="date_immutable", nullable=true)
+     */
+    private $updateAt;
+
     public function __construct()
     {
         $this->pierres = new ArrayCollection();
@@ -216,6 +221,18 @@ class Article
     public function setMainPicture(?Photo $mainPicture): self
     {
         $this->mainPicture = $mainPicture;
+
+        return $this;
+    }
+
+    public function getUpdateAt(): ?\DateTimeImmutable
+    {
+        return $this->updateAt;
+    }
+
+    public function setUpdateAt(?\DateTimeImmutable $updateAt): self
+    {
+        $this->updateAt = $updateAt;
 
         return $this;
     }
