@@ -14,7 +14,7 @@ class SitemapController extends AbstractController
     /**
      * @Route("/sitemap.xml", name="sitemap", defaults={"_format"="xml"})
      */
-    public function index(Request $request, string $photosDirectory)
+    public function index(Request $request, string $photosSiteMap)
     {
         $hostname = $request->getSchemeAndHttpHost();
 
@@ -26,7 +26,7 @@ class SitemapController extends AbstractController
 
         foreach ($this->getDoctrine()->getRepository(Article::class)->findAll() as $article) {
             $images = [
-                'loc' => 'string $photosDirectory' . $article->getMainPicture()->getUrl() , // URL to image
+                'loc' =>  $photosSiteMap . '' . $article->getMainPicture()->getUrl() , // URL to image
                 'title' => $article->getTitre()    // Optional, text describing the image
             ];
 
