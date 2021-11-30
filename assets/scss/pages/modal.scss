@@ -26,6 +26,8 @@
   border: 0.25rem solid $color2;
   border-radius: 5px;
   color: $color2;
+  height: 80vh;
+  overflow-y: auto;
 }
 
 #close {
@@ -38,4 +40,32 @@
 }
 .fa-times-circle {
   transition: transform 1.2s ease 0s;
+}
+
+#image_detail_article {
+  max-width: 500Px;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  margin: auto;
+}
+
+@media (max-width: 992px) {
+  *{
+    font-size: 1.5rem;
+  }
+
+  .modal-body{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .detail_article_modal {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    font-size: 2rem !important;
+  }
+
+
 }

@@ -1,10 +1,14 @@
 <div id="background-blur" class="bg-blur">
-	<div id="modal-body" class="card col-12 col-lg-8">
-        <div class="modal-header">
-            <span>{{ article.titre }}</span>
-            <span id="close" class=""><i class="far fa-times-circle size:5"></i></span>
-        </div>
-            <div class="modal-body"></div>
-        {{ article.description|raw }}
-    </div>
+	<div id="modal-body" class="card col-12 col-lg-8 detail_article_modal">
+		<div class="modal-header">
+			<span>{{ article.titre }}</span>
+			<span id="close" class="">
+				<i class="far fa-times-circle size:5"></i>
+			</span>
+		</div>
+		<div class="modal-body">
+            <img src="./photos/{{ article.mainPicture.url }}" alt="{{ article.mainPicture.alt }}" id="image_detail_article">
+			{{ article.description|raw }}
+		</div>
+	</div>
 </div>
