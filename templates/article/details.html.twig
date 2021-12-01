@@ -1,0 +1,22 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}
+	{{  article.titre  }}
+{% endblock %}
+
+{% block main %}
+
+	<div class="card col-12 col-lg-8 offset-lg-2 detail_article_modal">
+		<div class="modal-header">
+			<span>{{ article.titre }}</span>
+		</div>
+		<div class="modal-body">
+            <img src="/photos/{{ article.mainPicture.url }}" alt="{{ article.mainPicture.alt }}" id="image_detail_article">
+			{{ article.description|raw }}
+		</div>
+		<div class="modal-footer">
+			<a href="{{ path('all_articles') }}">Toutes nos créations</a>
+		</div>
+	</div>
+
+{% endblock %}

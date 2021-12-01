@@ -48,6 +48,8 @@ header {
     }
 }
 
+@import './navbar.scss';
+
 footer {
     height: $footerH;
     background-color: $color1;

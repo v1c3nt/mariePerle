@@ -1,3 +1,10 @@
+<input type="checkbox" id="check">
+<label for="check" class="checkbtn">
+	<i class="fas fa-bars h1"></i>
+</label>
+<label for="check" class="uncheckbtn">
+	<i class="far fa-times-circle h1"></i>
+</label>
 <div id="header-navbar">
 	<nav>
 		<ul class="header-nav">
@@ -6,16 +13,16 @@
 			</li>
 
 			{# <li>Les bienfaits</li>
-			<li>Les pierres</li>#}
+						<li>Les pierres</li>#}
 			<li class="navbar-link {{ ActiveRoute('all_articles') }}">
 				<a class="nav-link" href="{{ path('all_articles') }}">Nos créations</a>
 			</li>
 			<li class="navbar-link {{ ActiveRoute('contact_us') }}">
-				<a href="{{ path('contact_us') }}">Nous contacter</a>
+				<a class="nav-link" href="{{ path('contact_us') }}">Nous contacter</a>
 			</li>
 			{# <li class="navbar-link {{ ActiveRoute('basket') }}">
-				<a class="nav-link" href="{{ path('basket') }}"><i class="fa fa-shopping-basket"></i> Panier</a>
-			</li>  #}
+							<a class="nav-link" href="{{ path('basket') }}"><i class="fa fa-shopping-basket"></i> Panier</a>
+						</li>  #}
 		</ul>
 	</nav>
 </div>

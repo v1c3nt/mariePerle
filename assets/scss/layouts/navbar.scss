@@ -1,0 +1,73 @@
+.checkbtn,
+.uncheckbtn {
+  font-size: 30px;
+  color: white;
+  position: fixed;
+  top: 25px;
+  left: 25px;
+  cursor: pointer;
+  display: none;
+}
+
+#check {
+  display: none;
+}
+// @media (max-width: 992px) {
+//   label.logo {
+//     font-size: 30px;
+//     padding-left: 50px;
+//   }
+//   nav ul li a {
+//     font-size: 16px;
+//   }
+// }
+
+@media (max-width: 1100px) {
+  .checkbtn {
+    display: block;
+  }
+
+  #header-navbar {
+    position: fixed;
+    width: 100vw;
+    background-color: $color1;
+    padding: 3rem 0;
+    background: $color1;
+    top: $headerH;
+    left: -100%;
+    text-align: center;
+    transition: all 0.5s;
+
+    & > nav > ul {
+      display: flex;
+      flex-direction: column;
+      height: 2rem;
+
+      & > li {
+        border: none !important;
+        border-radius: 0 !important;
+        height: auto;
+
+        &:hover {
+          background-color: $color5;
+        }
+      }
+    }
+  }
+
+  .uncheckbtn {
+    display: none;
+  }
+
+  #check:checked ~ .uncheckbtn {
+    display: block;
+  }
+
+  #check:checked ~ .checkbtn {
+    display: none;
+  }
+
+  #check:checked ~ #header-navbar {
+    left: 0;
+  }
+}

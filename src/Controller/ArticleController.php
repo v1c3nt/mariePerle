@@ -38,6 +38,16 @@ class ArticleController extends AbstractController
     */
     public function displayDetails(Article $article)
     {
+        return $this->render('article/details.html.twig', [
+            'article' => $article,
+        ]);
+    }
+
+    /**
+    * @Route("/detail-article-modal/{article}", name="details_article_modal", methods={"GET"})
+    */
+    public function displayDetailsInModal(Article $article)
+    {
         return $this->render('article/partials/_details.twig', [
             'article' => $article,
         ]);

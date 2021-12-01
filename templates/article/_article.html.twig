@@ -1,76 +1,72 @@
+{{ encore_entry_script_tags('app') }}
 
-			{{ encore_entry_script_tags('app') }}
-{% for article in articles %}
-<div class="article col-10 offset-1 col-lg-5 offset-lg-0">
-	<div class="left-article">
+{% for key, article in articles %}
 
-		{# <div class="prix-wrapper">
-			{% if article.remise %}
-				<div class="old-prix">
-					{{ article.prix|format_currency('EUR', format_width) }}
+	<div class="article col-10 offset-1 col-lg-5 offset-lg-0" 
+		{% if 0 == loop.index % 6 %} 
+			hx-get="{{ path('scroll_articles', {'page': next}) }}" 
+			hx-trigger="revealed" 
+			hx-swap="afterend"
+		{% endif %}
+	>
+		<div
+			class="left-article">
 
-				</div>
-				<div class="remise">
-					{{ article.remise }}
-				</div>
-				<div class="new-prix">
-					{{ article.prix - ((article.prix * article.remise) / 100) }}
-				</div>
-			{% else %}
-				<div class="prix">
-					{{ article.prix|format_currency('EUR', {fraction_digit:0}) }}
-				</div>
-			{% endif %}
-		</div> #}
-		<div class="main-image">
-			{% if article.mainPicture is not empty %}
-				<img src="./photos/{{ article.mainPicture.url }}" alt="{{ article.mainPicture.alt }}">
-			{% endif %}
-		</div>
-		
-	</div>
-	<div class="right-article">
-		<h4 class="titre">
-			{{ article.titre }}
-		</h4>
-
-		<div class="article-body">
-			<div class="description" 
-				hx-get="{{ path('details_article', {'article':article.id}) }}"
-       			hx-trigger="click"
-       			hx-target="#modal-wrapper"
-       			hx-swap="innerHTML"
-			>
-				description:
-				<p>
-					{{article.description|striptags| u.truncate(100, '...')}}
-				</p>
+			{# <div class="prix-wrapper">
+									{% if article.remise %}
+										<div class="old-prix">
+											{{ article.prix|format_currency('EUR', format_width) }}
+						
+										</div>
+										<div class="remise">
+											{{ article.remise }}
+										</div>
+										<div class="new-prix">
+											{{ article.prix - ((article.prix * article.remise) / 100) }}
+										</div>
+									{% else %}
+										<div class="prix">
+											{{ article.prix|format_currency('EUR', {fraction_digit:0}) }}
+										</div>
+									{% endif %}
+								</div> #}
+			<div class="main-image">
+				{% if article.mainPicture is not empty %}
+					<img src="./photos/{{ article.mainPicture.url }}" alt="{{ article.mainPicture.alt }}">
+				{% endif %}
 			</div>
-			<hr>
-			<div class="composition">
-				<ul>
-					{% for pierre in article.pierres %}
-						<li>{{ pierre.nom }}</li>
-					{% endfor %}
-				</ul>
-			</div>
+
 		</div>
-		<button class="learn-more" id="buttonReact-{{ article.id }}">
-			
-		</button>
-		{# <div class="basket-action">
-			<a href="{{ path('remove_article', {'article':article.id}) }}">
-				<i class="fas fa-minus-square"></i>
-			</a>
-			<a href="{{ path('add_article', {'article':article.id}) }}">
-				<i class="fas fa-plus-square"></i>
-			</a><br>
-		</div> #}
+		<div class="right-article">
+			<h4 class="titre">
+				{{ article.titre }}
+			</h4>
+
+			<div class="article-body">
+				<div class="description" hx-get="{{ path('details_article_modal', {'article':article.id}) }}" hx-trigger="click" hx-target="#modal-wrapper" hx-swap="innerHTML">
+					description:
+					<p>
+						{{article.description|striptags| u.truncate(100, '...')}}
+					</p>
+				</div>
+				<hr>
+				<div class="composition">
+					<ul>
+						{% for pierre in article.pierres %}
+							<li>{{ pierre.nom }}</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+			<button class="learn-more" id="buttonReact-{{ article.id }}"></button>
+			{# <div class="basket-action">
+									<a href="{{ path('remove_article', {'article':article.id}) }}">
+										<i class="fas fa-minus-square"></i>
+									</a>
+									<a href="{{ path('add_article', {'article':article.id}) }}">
+										<i class="fas fa-plus-square"></i>
+									</a><br>
+								</div> #}
+		</div>
 	</div>
-</div>
-		{% endfor %} 
-<span class="w-100"
-	hx-get="{{ path('scroll_articles', {'page': next}) }}"
-    hx-trigger="revealed"
-    hx-swap="afterend"
-></span>
+{% endfor %}
